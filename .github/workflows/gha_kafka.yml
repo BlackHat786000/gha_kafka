@@ -12,4 +12,3 @@ jobs:
       
     - name: Trigger kafka listener
       run: python3 /home/ec2-user/listener.py {{ github.event.client_payload.id }}
-      shell: bash
