@@ -7,6 +7,6 @@ jobs:
   match-bet:
     runs-on: self-hosted
     steps:
-    - name: Run Kafka consumer script
+    - name: Trigger kafka listener
       run: |
         python3 /home/ec2-user/listener.py
