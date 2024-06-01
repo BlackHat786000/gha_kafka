@@ -1,0 +1,12 @@
+name: GHA implementation with Kafka
+on:
+  repository_dispatch:
+    types: [gha-kafka]
+
+jobs:
+  match-bet:
+    runs-on: self-hosted
+    steps:
+    - name: Run Kafka consumer script
+      run: |
+        python3 /home/ec2-user/listener.py
