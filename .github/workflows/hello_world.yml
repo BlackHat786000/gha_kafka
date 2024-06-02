@@ -23,7 +23,7 @@ jobs:
     steps:
       - name: Set async job status step
         id: async_step
-        uses: BlackHat786000/set-async-job-status@v1.5
+        uses: BlackHat786000/set-async-job-status@v1.6
         with:
           broker: '65.2.151.189:9092'
           topic: 'myFirstJsonTopic'
