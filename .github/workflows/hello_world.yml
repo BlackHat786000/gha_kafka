@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: octocat/hello-world-javascript-action@v1.1
+        uses: BlackHat786000/hello-world-javascript-action@v1.1
         with:
           who-to-greet: 'Udit Yadav'
       # Use the output from the `hello` step
