@@ -25,7 +25,7 @@ jobs:
         id: async_step
         uses: BlackHat786000/set-async-job-status@v1.7
         with:
-          broker: '65.2.151.189:9092'
-          topic: 'myFirstJsonTopic'
-          id: 123
-          timeout: 5
+          broker_url: '65.2.151.189:9092'
+          topic_name: 'myFirstJsonTopic'
+          job_id: 123
+          listener_timeout: 5
