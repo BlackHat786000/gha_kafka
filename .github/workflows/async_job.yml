@@ -1,0 +1,18 @@
+name: Demo workflow to set async job status based on event
+on:
+  repository_dispatch:
+    types: [async-job]
+
+jobs:
+  set_aync_job_status:
+    runs-on: self-hosted
+    name: async_job
+    steps:
+      - name: Set async job status step
+        id: async_step
+        uses: BlackHat786000/set-async-job-status@v1.1
+        with:
+          broker: '65.2.151.189:9092'
+          topic: 'myFirstJsonTopic'
+          id: 123
+          timeout: 5
