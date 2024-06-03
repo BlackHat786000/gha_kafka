@@ -10,9 +10,9 @@ jobs:
     steps:
       - name: Set async job status step
         id: async_step
-        uses: BlackHat786000/set-async-job-status@v1.1
+        uses: BlackHat786000/set-async-job-status@v2.6
         with:
-          broker: '65.2.151.189:9092'
-          topic: 'myFirstJsonTopic'
-          id: 123
-          timeout: 5
+          kafka_broker: '65.2.151.189:9092'
+          topic_name: 'myFirstJsonTopic'
+          job_id: '123'
+          listener_timeout: 5
