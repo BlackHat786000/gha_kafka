@@ -26,6 +26,6 @@ jobs:
         uses: BlackHat786000/set-async-job-status@v2.0
         with:
           broker_url: '65.2.151.189:9092'
-          topic_name: 'myFirstJsonTopic'
+          topic_name: 'myFirstJsonTopicx'
           job_id: '123'
-          listener_timeout: abc
+          listener_timeout: 5
