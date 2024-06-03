@@ -1,31 +1,22 @@
-name: Demo workflow using custom action
+name: Demo workflow to set async job status based on event
+
 on:
   repository_dispatch:
-    types: [hello-world]
+    types: [async-job]
 
 jobs:
-  hello_world_job:
-    runs-on: self-hosted
-    name: A job to say hello
-    steps:
-      - name: Hello world action step
-        id: hello
-        uses: BlackHat786000/hello-world-javascript-action@v1.1
-        with:
-          who-to-greet: 'Udit Yadav'
-      # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
-
   set_aync_job_status:
     runs-on: self-hosted
     name: async_job
     steps:
+      - name: Print job ID
+        run: echo "Current job ID is ${{ github.job }}"
+      
       - name: Set async job status step
         id: async_step
-        uses: BlackHat786000/set-async-job-status@v2.5
+        uses: BlackHat786000/set-async-job-status@v2.7
         with:
           kafka_broker: '65.2.151.189:9092'
           topic_name: 'myFirstJsonTopic'
-          job_id: '123'
+          job_id: ${{ github.job }}
           listener_timeout: 5
