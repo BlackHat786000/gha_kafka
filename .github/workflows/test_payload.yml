@@ -1,0 +1,20 @@
+name: Test Extract Payload
+
+on:
+  repository_dispatch:
+    types: [test-payload]
+
+jobs:
+  extract_payload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract client payload
+        run: |
+          echo "Extracting client payload..."
+          payload='${{ github.event.client_payload.PRO.vars }}'
+          echo $payload | jq -r 'to_entries | .[] | "\(.key)=\(.value)"' >> $GITHUB_ENV
+
+      - name: Display environment variables
+        run: |
+          echo "Preferred Locale: $preferred_locale"
+          echo "Global Tenant ID: $global_tenant_id"
