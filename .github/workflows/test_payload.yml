@@ -11,7 +11,7 @@ jobs:
       - name: Extract client payload
         run: |
           echo "Extracting client payload..."
-          payload='${{ github.event.client_payload.PRO.vars }}'
+          payload=${{ github.event.client_payload.PRO.vars }}
           echo $payload | jq -r 'to_entries | .[] | "\(.key)=\(.value)"' >> $GITHUB_ENV
 
       - name: Display environment variables
